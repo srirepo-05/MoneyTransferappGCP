@@ -1,0 +1,87 @@
+.card {
+  border-radius: 20px;
+  padding: 1.75rem;
+  color: #fff;
+  background: linear-gradient(135deg, #312e81 0%, #4338ca 50%, #6d28d9 100%);
+  box-shadow: 0 12px 36px rgba(79, 70, 229, 0.4);
+  min-width: 280px;
+  flex: 1;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+  top: -60px;
+  right: -40px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(79, 70, 229, 0.5);
+}
+
+/* Per-type accent gradients */
+.card.savings {
+  background: linear-gradient(135deg, #065f46, #047857 50%, #059669 100%);
+  box-shadow: 0 12px 36px rgba(5, 150, 105, 0.4);
+}
+
+.card.credit {
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c 50%, #dc2626 100%);
+  box-shadow: 0 12px 36px rgba(220, 38, 38, 0.4);
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.acctType {
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.acctNumber {
+  font-size: 0.82rem;
+  opacity: 0.65;
+  letter-spacing: 2.5px;
+  font-family: monospace;
+}
+
+.balanceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.balanceLabel {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.balanceAmount {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}

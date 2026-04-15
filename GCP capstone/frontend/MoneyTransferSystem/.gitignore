@@ -1,0 +1,80 @@
+HELP.md
+hopscotch-collection.json
+curl-commands.txt
+
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Build output
+/build/
+
+# Logs
+*.log
+
+# Compiled class files
+*.class
+
+# Environment files
+.env
+
+# Database files
+*.h2.db
+*.mv.db
+
+# System files
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Test output
+/test-output/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# BlueJ files
+*.ctxt
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs
+hs_err_pid*
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Linux
+*~

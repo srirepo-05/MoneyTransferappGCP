@@ -1,0 +1,155 @@
+.tableWrapper {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table thead tr {
+  background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+}
+
+.table thead th {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.row {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s, transform 0.12s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: #f8f9ff;
+  transform: translateX(2px);
+}
+
+.table td {
+  padding: 0.9rem 1rem;
+  vertical-align: middle;
+}
+
+.dateCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+.time {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+}
+
+.descCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  max-width: 220px;
+}
+
+.desc {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ref {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-family: monospace;
+}
+
+.acctCell {
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
+
+/* Type badges */
+.typeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.credit {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #059669;
+}
+
+.debit {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #dc2626;
+}
+
+/* Amount column */
+.amountCol {
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.creditAmt { color: #059669; }
+.debitAmt  { color: #dc2626; }
+
+/* Status badges */
+.statusBadge {
+  display: inline-block;
+  padding: 0.22rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: var(--text-secondary);
+  letter-spacing: 0.2px;
+}
+
+.statusBadge.completed { background: #d1fae5; color: #059669; }
+.statusBadge.pending   { background: #fef3c7; color: #d97706; }
+.statusBadge.failed    { background: #fee2e2; color: #dc2626; }
+
+/* Empty state */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3.5rem 2rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.empty span {
+  font-size: 3rem;
+}
+

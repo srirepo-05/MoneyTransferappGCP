@@ -1,0 +1,334 @@
+.container {
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  max-width: 540px;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.container:hover {
+  box-shadow: 0 24px 56px rgba(79, 70, 229, 0.2), 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ── Stepper ──────────────────────────── */
+.stepper {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem 0;
+  gap: 0;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.stepItem:last-child {
+  flex: 0;
+}
+
+.stepCircle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  border: 2px solid var(--border);
+}
+
+.stepCircle.stepActive {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+}
+
+.stepLabel {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.stepLabelActive {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 0.5rem;
+  transition: background 0.4s;
+  border-radius: 2px;
+}
+
+.stepLineDone {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+/* ── From account display (wireframe style) ─────── */
+.fromAccountDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: linear-gradient(135deg, #eef2ff, #ede9fe);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.fromAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.fromName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0 0 0.15rem;
+}
+
+.fromMeta {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ── Form body ────────────────────────── */
+.formBody {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.stepTitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #424242;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  background: var(--surface-2);
+  color: var(--text-primary);
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  background: var(--surface);
+}
+
+.inputError {
+  border-color: #e53935;
+}
+
+.error {
+  color: #e53935;
+  font-size: 0.78rem;
+}
+
+.amountWrapper {
+  position: relative;
+}
+
+.currency {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.amountInput {
+  padding-left: 1.75rem;
+}
+
+.idempotencyNote {
+  font-size: 0.78rem;
+  color: var(--primary);
+  background: #eef2ff;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.primaryBtn {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 18px rgba(79, 70, 229, 0.45);
+  margin-top: 0.5rem;
+}
+
+.primaryBtn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(79, 70, 229, 0.55); }
+.primaryBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.secondaryBtn {
+  flex: 1;
+  padding: 0.9rem;
+  background: var(--surface);
+  color: var(--primary);
+  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.secondaryBtn:hover:not(:disabled) { background: #eef2ff; border-color: rgba(99, 102, 241, 0.5); }
+.secondaryBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btnRow {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btnRow .primaryBtn {
+  margin-top: 0;
+}
+
+/* ── Review card ─────────────────────── */
+.reviewCard {
+  background: linear-gradient(135deg, #f8faff, #f3f0ff);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reviewRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.reviewRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reviewLabel {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.reviewValue {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.reviewHighlight {
+  color: var(--primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.errorBanner {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #c62828;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Success ─────────────────────────── */
+.successBody {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.successIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.successTitle {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #059669, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 0.5rem;
+}
+
+.successSub {
+  color: #555;
+  margin: 0 0 0.5rem;
+}
+
+.txnId {
+  font-size: 0.85rem;
+  color: #757575;
+  margin: 0 0 1.5rem;
+}
