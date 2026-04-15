@@ -50,6 +50,9 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/api/v1/transfers").hasAnyRole("USER", "ADMIN")
                     .requestMatchers(HttpMethod.GET,  "/api/v1/accounts/**").hasAnyRole("USER", "ADMIN")
 
+                    // Analytics endpoints — ADMIN only (BigQuery data)
+                    .requestMatchers(HttpMethod.GET, "/api/v1/analytics/**").hasRole("ADMIN")
+
                     // Any other request must be authenticated
                     .anyRequest().authenticated()
             )

@@ -8,19 +8,31 @@ import com.example.moneytransfer.domain.enums.TransactionStatus;
 import com.example.moneytransfer.domain.exception.DuplicateTransferException;
 import com.example.moneytransfer.repository.AccountRepository;
 import com.example.moneytransfer.repository.TransactionLogRepository;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class TransferService {
 
     private final AccountRepository accountRepository;
     private final TransactionLogRepository transactionLogRepository;
     private final AccountService accountService;
+    // Optional — only present when bigquery.enabled=true
+    private final Optional<BigQueryService> bigQueryService;
+
+    public TransferService(AccountRepository accountRepository,
+                           TransactionLogRepository transactionLogRepository,
+                           AccountService accountService,
+                           Optional<BigQueryService> bigQueryService) {
+        this.accountRepository        = accountRepository;
+        this.transactionLogRepository = transactionLogRepository;
+        this.accountService           = accountService;
+        this.bigQueryService          = bigQueryService;
+    }
 
     // -----------------------------------------------------------------------
     // Public API
@@ -73,6 +85,13 @@ public class TransferService {
                 request.getFromAccountId(),
                 request.getToAccountId(),
                 request.getAmount());
+
+        // 5. Stream to BigQuery asynchronously (fire-and-forget, never blocks response)
+        bigQueryService.ifPresent(bq -> {
+            bq.streamTransaction(txLog);
+            bq.streamAccount(from);
+            bq.streamAccount(to);
+        });
 
         return toResponse(txLog);
     }

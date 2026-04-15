@@ -102,6 +102,29 @@ public class GlobalExceptionHandler {
     }
 
     // -----------------------------------------------------------------------
+    // 503 – BigQuery unavailable
+    // -----------------------------------------------------------------------
+
+    /**
+     * Handles {@link com.google.cloud.bigquery.BigQueryException} thrown when
+     * the analytics query layer cannot reach Google BigQuery (network issues,
+     * invalid credentials, quota exceeded, etc.).
+     *
+     * <p>This never affects the core banking flow because BigQuery streaming
+     * inserts are fire-and-forget ({@code @Async}). This handler only triggers
+     * for synchronous analytics query endpoints.
+     */
+    @ExceptionHandler(com.google.cloud.bigquery.BigQueryException.class)
+    public ResponseEntity<ErrorResponse> handleBigQueryException(
+            com.google.cloud.bigquery.BigQueryException ex, HttpServletRequest request) {
+        log.error("BigQuery error on [{}]: code={} message={}",
+                request.getRequestURI(), ex.getCode(), ex.getMessage(), ex);
+        return buildResponse(HttpStatus.SERVICE_UNAVAILABLE, "BIGQUERY_ERROR",
+                "Analytics service is temporarily unavailable. " +
+                "Please try again later. Details: " + ex.getMessage(), request);
+    }
+
+    // -----------------------------------------------------------------------
     // Helper
     // -----------------------------------------------------------------------
 
